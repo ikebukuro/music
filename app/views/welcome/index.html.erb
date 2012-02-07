@@ -1,0 +1,50 @@
+総合検索
+<center>
+<form method="post" action="">
+<input type="text" id="search" name="search" value="<%= params[:search] if request.post? %>" />
+<input type="submit" value="一括検索" />
+</form>
+<table>
+<% if request.post?  %>
+<tr>
+<th>
+<%= image_tag("/assets/google.jpg", :size => '180x100') %>
+</th>
+<th>
+<%= image_tag("/assets/baidu.png",:size => '185x77') %>
+</th>
+<th>
+<%= image_tag("/assets/bing.jpg",:size => '100x80') %>
+</th>
+</tr>
+
+<tr>
+<td>
+<div id="google">
+<% @contents1.each do |c| %>
+<%= c %><br>
+<% end %>
+</div>
+</td>
+
+
+<td>
+<div id="baidu">
+<% @contents2.each do |c| %>
+<%= c %><br>
+<% end %>
+</div>
+</td>
+
+<td>
+<div id="bing">
+<% @contents3.each do |c| %>
+<%= c %><br>
+<% end %>
+</div>
+</td>
+</tr>
+
+<% end %>
+</table>
+</center>
